@@ -9,12 +9,12 @@ public class ServerThread extends Thread{
     private final Random random;
 
     private volatile boolean flag = false;
-
+    //构造
     public ServerThread(RequestQueue queue) {
         this.queue = queue;
         random = new Random(System.currentTimeMillis());
     }
-
+    //模拟服务接收
     @Override
     public void run() {
         while (!flag){
@@ -33,6 +33,7 @@ public class ServerThread extends Thread{
                 return;
             }
         }
+
     }
     //模拟关闭服务接收
     public void close(){
