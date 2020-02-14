@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 模拟生产队列
  */
 public class ProducerThreads extends Thread{
-
+    //信息队列
     private final MessageQueue messageQueue;
 
     private final static Random random = new Random(System.currentTimeMillis());

@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.util.LinkedList;
 
 public class MessageQueue {
-
+    //信息队列
     private final LinkedList<Message> queue;
     //队列最大长度
     private final static int DEFAULT_MAX_LIMIT=100;
@@ -19,7 +19,7 @@ public class MessageQueue {
         this.limit=limit;
         this.queue=new LinkedList<>();
     }
-
+    //将消息放入消息队列中
     public void put(Message message) throws InterruptedException {
         synchronized (queue){
             while (queue.size()>limit){
@@ -29,6 +29,7 @@ public class MessageQueue {
             queue.notifyAll();
         }
     }
+    //从消息队列中获取消息
     public Message take() throws InterruptedException {
         synchronized (queue){
             while (queue.isEmpty()){
